@@ -5,6 +5,7 @@ This repository includes scripts to create, delete or edit multiple files at a t
 ```python
 # List of scripts
 remove-dupes.py
+remove-files.py
 ```
 
 ## Scripts
