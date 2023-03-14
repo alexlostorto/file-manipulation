@@ -66,29 +66,30 @@ def main():
 
         input("Press ENTER to exit")
 
+    def traverseFiles(root, question):
+        while True:
+            dirs = [d for d in os.listdir(root) if os.path.isdir(os.path.join(root, d))]
+
+            if len(dirs) == 0:
+                return root
+
+            # Choose directory
+            for i in range(len(dirs)):
+                print(f"{i+1}) {dirs[i]}")
+
+            dir = getInput(dirs, question)
+
+            if not dir:
+                return root
+
+            print(f"You chose '{dirs[dir-1]}'\n")
+            root = os.path.join(root, dirs[dir-1])
+
     assert os.path.isdir(ROOT)
 
-    while True:
-        dirs = [d for d in os.listdir(ROOT) if os.path.isdir(os.path.join(ROOT, d))]
+    sourceDir = traverseFiles(ROOT, "Choose source directory (press ENTER to choose CWD): ")
 
-        if len(dirs) == 0:
-            print("\nRunning script\n")
-            removeDupes(os.path.join(ROOT))
-            break
-
-        # Choose directory
-        for i in range(len(dirs)):
-            print(f"{i+1}) {dirs[i]}")
-
-        dir = getInput(dirs, "Choose directory (press ENTER to choose CWD): ")
-
-        if not dir:
-            print("Running script\n")
-            removeDupes(os.path.join(ROOT))
-            break
-
-        print(f"You chose '{dirs[dir-1]}'\n")
-        ROOT = os.path.join(ROOT, dirs[dir-1])
+    removeDupes(sourceDir)
 
 
 if __name__ == '__main__':
