@@ -126,7 +126,7 @@ if yesNo("Delete files (y/n): "):
         os.remove(os.path.join(ROOT, file))
 ```
 
-#### Remove files
+#### Remove Files
 
 1. Lists all files in the specified directory and add it to the list if it matches the file name criteria.
 
@@ -140,6 +140,22 @@ files = [f for f in os.listdir(ROOT) if os.path.isfile(os.path.join(path, f)) if
 if yesNo("Delete files (y/n): "):
     for file in files:
         os.remove(os.path.join(ROOT, file))
+```
+
+#### Move Files
+
+1. Lists all files in the specified directory and add it to the list if it matches the file name criteria.
+
+```python
+files = [f for f in os.listdir(ROOT) if os.path.isfile(os.path.join(path, f)) if checkName(f)]
+```
+
+2. If the user confirms the moving of the files, use shutil.move() to move each file into the destination directory.
+
+```python
+if yesNo("Move files (y/n): "):
+    for file in files:
+        shutil.move(os.path.join(source, file), os.path.join(destination, file))
 ```
 
 ## Credits
