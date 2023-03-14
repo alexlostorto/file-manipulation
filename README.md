@@ -53,6 +53,25 @@ def getInput(array, question):
             return userInput
 ```
 
+#### checkName(fileName):
+
+Takes a file name as a parameter. This function checks if the global USE_PREFIX and USE_SUFFIX variables are True and if they are, then the file name is checked to see if it contains the corresponding PREFIX/SUFFIX. Returns True if the file name matches all criteria.
+
+```python
+def checkName(fileName):
+    fileName = str(fileName)
+    if not USE_PREFIX and not USE_SUFFIX:
+        return True
+    elif USE_PREFIX and fileName.startswith(PREFIX) and USE_SUFFIX and fileName.endswith(SUFFIX):
+        return True
+    elif USE_PREFIX and fileName.startswith(PREFIX) and not USE_SUFFIX:
+        return True
+    elif USE_SUFFIX and fileName.endswith(SUFFIX) and not USE_PREFIX:
+        return True
+    else:
+        return False
+```
+
 #### traverseFiles(root, question):
 
 Takes the root directory and a question as parameters. This function allows the user to traverse through the device's filesystem and returns the chosen directory.
@@ -104,6 +123,22 @@ for file in files:
 ```python
 if yesNo("Delete files (y/n): "):
     for file in dupFiles:
+        os.remove(os.path.join(ROOT, file))
+```
+
+#### Remove files
+
+1. Lists all files in the specified directory and add it to the list if it matches the file name criteria.
+
+```python
+files = [f for f in os.listdir(ROOT) if os.path.isfile(os.path.join(path, f)) if checkName(f)]
+```
+
+2. If the user confirms the deletion of the files, use os.remove() to delete each file in files.
+
+```python
+if yesNo("Delete files (y/n): "):
+    for file in files:
         os.remove(os.path.join(ROOT, file))
 ```
 
