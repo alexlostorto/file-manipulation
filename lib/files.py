@@ -2,7 +2,7 @@ import os
 from lib.inputs import getInput
 
 
-def traverseFiles(root, question):
+def traverse(root, question):
     while True:
         dirs = [d for d in os.listdir(root) if os.path.isdir(os.path.join(root, d))]
 
