@@ -9,8 +9,6 @@ from lib.files import traverse
 ROOT = r"C:\Users\[Users]\[pythonFiles]"
 PREFIX = '.trashed'
 SUFFIX = '.jpeg'
-USE_PREFIX = False
-USE_SUFFIX = False
 
 
 def moveFiles(source, destination):
