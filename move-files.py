@@ -13,23 +13,24 @@ USE_PREFIX = False
 USE_SUFFIX = False
 
 
-def main():
-    def moveFiles(source, destination):
-        assert os.path.isdir(source)
-        assert os.path.isdir(destination)
-        files = [f for f in os.listdir(source) if os.path.isfile(os.path.join(source, f)) if str(f).startswith(PREFIX) and str(f).endswith(SUFFIX)]
+def moveFiles(source, destination):
+    assert os.path.isdir(source)
+    assert os.path.isdir(destination)
+    files = [f for f in os.listdir(source) if os.path.isfile(os.path.join(source, f)) if str(f).startswith(PREFIX) and str(f).endswith(SUFFIX)]
 
-        print("---FILES---")
+    print("---FILES---")
+    for file in files:
+        print(file)
+
+    if yesNo("Move files (y/n): "):
         for file in files:
-            print(file)
+            shutil.move(os.path.join(source, file), os.path.join(destination, file))
+        print(f"Moved {len(files)} files")
 
-        if yesNo("Move files (y/n): "):
-            for file in files:
-                shutil.move(os.path.join(source, file), os.path.join(destination, file))
-            print(f"Moved {len(files)} files")
+    input("Press ENTER to exit")
 
-        input("Press ENTER to exit")
 
+def main():
     assert os.path.isdir(ROOT)
 
     sourceDir = traverse(ROOT, "Choose source directory (press ENTER to choose CWD): ")
