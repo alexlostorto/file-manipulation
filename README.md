@@ -7,6 +7,7 @@ This repository includes scripts to create, delete or edit multiple files at a t
 move-files.py
 remove-dupes.py
 remove-files.py
+pdf-merger.py
 ```
 
 ## Functions
