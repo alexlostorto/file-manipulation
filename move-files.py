@@ -4,6 +4,7 @@ import shutil
 from lib.inputs import yesNo
 from lib.traverse import traverseFiles
 
+
 # Absolute path to the directory you want to search
 ROOT = r"C:\Users\[Users]\[pythonFiles]"
 PREFIX = '.trashed'
