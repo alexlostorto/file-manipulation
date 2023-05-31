@@ -24,26 +24,25 @@ def checkName(fileName):
         return True
     else:
         return False
+    
+
+def removeFiles(path):
+    assert os.path.isdir(path)
+    files = [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f)) if checkName(f)]
+
+    print("---FILES---")
+    for file in files:
+        print(file)
+
+    if yesNo("Delete files (y/n): "):
+        for file in files:
+            os.remove(os.path.join(path, file))
+        print(f"Deleted {len(files)} files")
+
+    input("Press ENTER to exit")
 
 
 def main():
-    global ROOT
-
-    def removeFiles(path):
-        assert os.path.isdir(ROOT)
-        files = [f for f in os.listdir(ROOT) if os.path.isfile(os.path.join(path, f)) if checkName(f)]
-
-        print("---FILES---")
-        for file in files:
-            print(file)
-
-        if yesNo("Delete files (y/n): "):
-            for file in files:
-                os.remove(os.path.join(ROOT, file))
-            print(f"Deleted {len(files)} files")
-
-        input("Press ENTER to exit")
-
     assert os.path.isdir(ROOT)
 
     sourceDir = traverse(ROOT, "Choose source directory (press ENTER to choose CWD): ")
