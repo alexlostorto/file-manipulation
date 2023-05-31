@@ -8,17 +8,11 @@ from lib.files import traverse
 ROOT = r"C:\Users\[Users]\[pythonFiles]"
 PREFIX = ''
 SUFFIX = '.py'
-
-
-def checkName(fileName):
-    fileName = str(fileName)
-    
-    return fileName.startswith(PREFIX) and fileName.endswith(SUFFIX)
     
 
 def removeFiles(path):
     assert os.path.isdir(path)
-    files = [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f)) if checkName(f)]
+    files = [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f)) if str(f).startswith(PREFIX) and str(f).endswith(SUFFIX)]
 
     print("---FILES---")
     for file in files:

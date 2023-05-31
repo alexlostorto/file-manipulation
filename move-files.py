@@ -13,25 +13,11 @@ USE_PREFIX = False
 USE_SUFFIX = False
 
 
-def checkName(fileName):
-    fileName = str(fileName)
-    if not USE_PREFIX and not USE_SUFFIX:
-        return True
-    elif USE_PREFIX and fileName.startswith(PREFIX) and USE_SUFFIX and fileName.endswith(SUFFIX):
-        return True
-    elif USE_PREFIX and fileName.startswith(PREFIX) and not USE_SUFFIX:
-        return True
-    elif USE_SUFFIX and fileName.endswith(SUFFIX) and not USE_PREFIX:
-        return True
-    else:
-        return False
-
-
 def main():
     def moveFiles(source, destination):
         assert os.path.isdir(source)
         assert os.path.isdir(destination)
-        files = [f for f in os.listdir(source) if os.path.isfile(os.path.join(source, f)) if checkName(f)]
+        files = [f for f in os.listdir(source) if os.path.isfile(os.path.join(source, f)) if str(f).startswith(PREFIX) and str(f).endswith(SUFFIX)]
 
         print("---FILES---")
         for file in files:
