@@ -6,24 +6,14 @@ from lib.files import traverse
 
 # Absolute path to the directory you want to search
 ROOT = r"C:\Users\[Users]\[pythonFiles]"
-PREFIX = 'test'
+PREFIX = ''
 SUFFIX = '.py'
-USE_PREFIX = True
-USE_SUFFIX = True
 
 
 def checkName(fileName):
     fileName = str(fileName)
-    if not USE_PREFIX and not USE_SUFFIX:
-        return True
-    elif USE_PREFIX and fileName.startswith(PREFIX) and USE_SUFFIX and fileName.endswith(SUFFIX):
-        return True
-    elif USE_PREFIX and fileName.startswith(PREFIX) and not USE_SUFFIX:
-        return True
-    elif USE_SUFFIX and fileName.endswith(SUFFIX) and not USE_PREFIX:
-        return True
-    else:
-        return False
+    
+    return fileName.startswith(PREFIX) and fileName.endswith(SUFFIX)
     
 
 def removeFiles(path):
