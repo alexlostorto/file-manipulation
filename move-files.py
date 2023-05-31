@@ -2,7 +2,7 @@ import os
 import shutil
 
 from lib.inputs import yesNo
-from lib.traverse import traverseFiles
+from lib.files import traverse
 
 
 # Absolute path to the directory you want to search
@@ -46,8 +46,8 @@ def main():
 
     assert os.path.isdir(ROOT)
 
-    sourceDir = traverseFiles(ROOT, "Choose source directory (press ENTER to choose CWD): ")
-    destinationDir = traverseFiles(ROOT, "Choose destination directory (press ENTER to choose CWD): ")
+    sourceDir = traverse(ROOT, "Choose source directory (press ENTER to choose CWD): ")
+    destinationDir = traverse(ROOT, "Choose destination directory (press ENTER to choose CWD): ")
 
     moveFiles(sourceDir, destinationDir)
 
