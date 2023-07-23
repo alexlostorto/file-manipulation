@@ -20,3 +20,12 @@ def traverse(root, question):
 
         print(f"You chose '{dirs[dir-1]}'\n")
         root = os.path.join(root, dirs[dir-1])
+
+
+def checkPath(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+
+def getFiles(root, prefix, suffix):
+    return [os.path.join(dirPath,f) for (dirPath, _, fileNames) in os.walk(root) for f in fileNames if str(f).startswith(prefix) and str(f).endswith(suffix)]
