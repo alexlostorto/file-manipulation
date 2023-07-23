@@ -9,6 +9,7 @@
 ```python
 # List of scripts
 move-files.py
+organise-files.py
 remove-dupes.py
 remove-files.py
 pdf-merger.py
