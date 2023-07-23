@@ -1,6 +1,10 @@
 <h1 align="center">File Manipulation</h1>
 
-This repository includes scripts to create, delete or edit multiple files at a time.
+<p align="center">
+  <b>Create, edit and delete files with ease!</b>
+</p>
+
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/alexlostorto/file-manipulation?style=for-the-badge&message=Code+Climate&labelColor=222222&logo=Code+Climate&logoColor=FFFFFF)](https://codeclimate.com/github/alexlostorto/file-manipulation/maintainability)
 
 ```python
 # List of scripts
@@ -10,7 +14,17 @@ remove-files.py
 pdf-merger.py
 ```
 
-## Functions
+## 📔 Table of Contents
+
+<details>
+  <summary>Click to expand</summary>
+  
+- [Functions](#-functions)
+- [Scripts](#-scripts)
+- [Credits](#-credits)
+</details>
+
+## 🔧 Functions
 
 #### yesNo(question):
 
@@ -98,7 +112,7 @@ def traverseFiles(root, question):
         root = os.path.join(root, dirs[dir-1])
 ```
 
-## Scripts
+## 📋 Scripts
 
 #### Remove Dupes
 
@@ -159,7 +173,7 @@ if yesNo("Move files (y/n): "):
         shutil.move(os.path.join(source, file), os.path.join(destination, file))
 ```
 
-## Credits
+## 📜 Credits
 
 Everything is coded by Alex lo Storto
 
