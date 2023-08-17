@@ -8,6 +8,7 @@
 
 ```python
 # List of scripts
+compress-files.py
 move-files.py
 organise-files.py
 remove-dupes.py
