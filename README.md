@@ -9,6 +9,7 @@
 ```python
 # List of scripts
 compress-files.py
+convert-files.py
 move-files.py
 organise-files.py
 remove-dupes.py
